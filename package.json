@@ -1,0 +1,21 @@
+{
+  "name": "tres-marias",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "Jonathan Dumlao",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "core-js": "^3.25.0",
+    "regenerator": "^0.14.7",
+    "sass": "^1.54.8"
+  }
+}

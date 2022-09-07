@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--mainFont);
+}
+
+:root {
+  --headerColor: #000000;
+  --fontPrimaryColor: #ffffff;
+  --bacgroundSection: #d9d9d9;
+  --mainFont: "Roboto", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2rem;
+  background-color: var(--headerColor);
+  color: var(--fontPrimaryColor);
+  align-items: center;
+  transition: 0.5s ease-in-out;
+}
+header nav .nav__links {
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+}
+header nav .nav__links__item__link {
+  text-decoration: none;
+  color: var(--fontPrimaryColor);
+}
+
+.landing {
+  padding: 2rem 10rem;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.landing__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.landing__content__title {
+  font-size: 3rem;
+}
+
+.desc {
+  background-color: var(--bacgroundSection);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 0.5fr 1.5fr;
+  height: 100vh;
+}
+.products__title {
+  grid-column: 1/span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.products__card {
+  width: 250px;
+  height: 400px;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.336);
+  background-color: var(--bacgroundSection);
+  border: 0.1px solid rgba(143, 143, 143, 0.233);
+  justify-self: center;
+}
+.products__card__img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  object-fit: cover;
+  height: 80%;
+  width: 100%;
+}
+.products__card__name {
+  display: flex;
+  justify-content: center;
+  line-height: 4.5rem;
+  font-weight: bold;
+}
+
+.section-wrapper {
+  display: flex;
+  height: 100vh;
+  padding-top: 15rem;
+}
+
+.we-have {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 2rem;
+}
+.we-have__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.comes-with {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 2rem;
+}
+.comes-with__items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.get-in-touch {
+  background-color: var(--bacgroundSection);
+  height: 30vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 0.8fr 1fr;
+  margin-bottom: 2rem;
+}
+.get-in-touch__title {
+  grid-column: 1/span 3;
+  justify-self: center;
+  align-self: center;
+}
+.get-in-touch .phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.get-in-touch .email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer {
+  background-color: var(--headerColor);
+  height: 15vh;
+}
+
+@media screen and (max-width: 804px) {
+  .products {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    height: 100%;
+  }
+  .products__card {
+    width: 100%;
+  }
+  .section-wrapper {
+    height: 100%;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 3rem;
+  }
+  .section-wrapper .we-have__items {
+    text-align: center;
+    list-style-type: none;
+  }
+  .section-wrapper .comes-with__items {
+    text-align: center;
+    list-style-type: none;
+  }
+  .get-in-touch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    height: 100%;
+    gap: 1rem;
+  }
+  .get-in-touch .phone {
+    flex-direction: row;
+  }
+  .get-in-touch .email {
+    flex-direction: row;
+  }
+}
+.bold {
+  font-weight: bold;
+}
+
+.line {
+  width: 80vw;
+  height: 0.1rem;
+  background-color: var(--headerColor);
+}
+
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+.sticky {
+  transition: 0.5s ease-in-out;
+  transform: translateY(-0.5px);
+  position: sticky;
+  top: 0;
+}
+
+/*# sourceMappingURL=output.css.map */
