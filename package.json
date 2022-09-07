@@ -2,7 +2,7 @@
   "name": "tres-marias",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "default": "index.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "core-js": "^3.25.0",
-    "regenerator": "^0.14.7",
+    "regenerator-runtime": "^0.14.7",
     "sass": "^1.54.8"
   }
 }
