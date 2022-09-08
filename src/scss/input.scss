@@ -10,11 +10,20 @@
 :root {
   --headerColor: #000000;
   --fontPrimaryColor: #ffffff;
+  --backgroundWhite: #ffffff;
   --bacgroundSection: #d9d9d9;
   --mainFont: "Roboto", sans-serif;
 }
 
+body {
+  background-image: url(../img/1.jpg);
+  background-position: cover;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 header {
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   padding: 2rem 2rem;
@@ -22,29 +31,32 @@ header {
   color: var(--fontPrimaryColor);
   align-items: center;
   transition: 0.5s ease-in-out;
+}
 
-  nav {
-    .nav__links {
-      list-style-type: none;
-      display: flex;
-      gap: 2rem;
+nav {
+  .nav__links {
+    list-style-type: none;
+    display: flex;
+    gap: 2rem;
 
-      &__item {
-        &__link {
-          text-decoration: none;
-          color: var(--fontPrimaryColor);
-        }
+    &__item {
+      &__link {
+        text-decoration: none;
+        color: var(--fontPrimaryColor);
       }
     }
   }
 }
 
 .landing {
+  position: relative;
   padding: 2rem 10rem;
   height: 85vh;
   display: flex;
   align-items: center;
   justify-content: end;
+  color: var(--fontPrimaryColor);
+  background-color: #0000005d;
   &__content {
     display: flex;
     flex-direction: column;
@@ -52,6 +64,14 @@ header {
     &__title {
       font-size: 3rem;
     }
+  }
+  .attribution {
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #ffffff;
+    font-style: italic;
   }
 }
 
@@ -70,6 +90,7 @@ header {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 0.5fr 1.5fr;
   height: 100vh;
+  background-color: var(--backgroundWhite);
   &__title {
     grid-column: 1 / span 3;
     display: flex;
@@ -77,13 +98,14 @@ header {
     align-items: center;
   }
   &__card {
-    width: 250px;
+    width: 300px;
     height: 400px;
     border-radius: 1rem;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.336);
     background-color: var(--bacgroundSection);
     border: 0.1px solid rgba(143, 143, 143, 0.233);
     justify-self: center;
+    animation: cardanimationnormal 0.5s forwards;
 
     &__img {
       border-top-left-radius: 1rem;
@@ -99,11 +121,15 @@ header {
       font-weight: bold;
     }
   }
+  &__card:hover {
+    animation: 0.5s cardanimation forwards;
+  }
 }
 .section-wrapper {
   display: flex;
   height: 100vh;
   padding-top: 15rem;
+  background-color: var(--backgroundWhite);
 }
 .we-have {
   display: flex;
@@ -137,12 +163,14 @@ header {
 
 .get-in-touch {
   background-color: var(--bacgroundSection);
-  height: 30vh;
+  height: 50vh;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 0.8fr 1fr;
   margin-bottom: 2rem;
+  animation: cardanimationnormal 0.5s forwards;
+
   &__title {
     grid-column: 1 / span 3;
     justify-self: center;
@@ -161,6 +189,22 @@ header {
     align-items: center;
     gap: 1rem;
   }
+  .facebook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
+    &__email {
+      text-decoration: none;
+    }
+  }
+}
+.get-in-touch:hover {
+  animation: 0.5s cardanimation forwards;
 }
 
 footer {
@@ -168,7 +212,7 @@ footer {
   height: 15vh;
 }
 
-@media screen and (max-width: 804px) {
+@media screen and (max-width: 1000px) {
   .products {
     display: flex;
     flex-direction: column;
@@ -213,6 +257,23 @@ footer {
     .email {
       flex-direction: row;
     }
+    .facebook {
+      flex-direction: row;
+    }
+  }
+}
+@media screen and (max-width: 623px) {
+  .landing {
+    justify-content: center;
+    padding: 0;
+  }
+  header {
+    font-size: 0.6rem;
+    nav {
+      .nav__links {
+        gap: 1rem;
+      }
+    }
   }
 }
 
@@ -226,14 +287,54 @@ footer {
   height: 0.1rem;
   background-color: var(--headerColor);
 }
+.section {
+  opacity: 1;
+  translate: 0 0;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.315);
+  transition: 1s ease-in-out;
+}
+.hidden {
+  opacity: 0;
+  translate: 0 20px;
+  transition: 1s ease-in-out;
+}
 
 .material-symbols-rounded {
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
 .sticky {
-  transition: 0.5s ease-in-out;
   transform: translateY(-0.5px);
   position: sticky;
   top: 0;
+  animation: 1s slidedown;
+}
+.selected {
+  background-color: #424242;
+}
+@keyframes slidedown {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes cardanimation {
+  0% {
+    translate: 0 0;
+  }
+  100% {
+    translate: 0 -10px;
+  }
+}
+
+@keyframes cardanimationnormal {
+  0% {
+    translate: 0 -10px;
+  }
+  100% {
+    translate: 0 0;
+  }
 }
